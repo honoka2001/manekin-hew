@@ -19,6 +19,14 @@ function AxiosTest() {
 
     return (
         <div>
+            {/* Tailwindテスト */}
+            <div className="bg-gray-200 p-4">
+                <span className="block text-gray-700 text-center bg-gray-400 px-4 py-2">1</span>
+                <span className="block text-gray-700 text-center bg-gray-400 px-4 py-2 mt-2">2</span>
+                <span className="block text-gray-700 text-center bg-gray-400 px-4 py-2 mt-2">3</span>
+            </div>
+
+            {/* axiosテスト */}
             <h1>idとタイトル表示</h1>
             <ul>
                 {test_posts.map((data) => {
