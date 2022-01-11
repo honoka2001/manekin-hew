@@ -25,3 +25,9 @@ Post.create!(
     },
   ]
 )
+5.times do |n|
+  User.create!(
+    email: "test#{n + 1}@test.com",
+    password_digest: "pass#{n + 1}",
+  )
+end
