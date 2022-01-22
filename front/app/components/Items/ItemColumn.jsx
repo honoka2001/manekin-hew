@@ -1,4 +1,5 @@
 import React from "react";
+import handleItemDelete from "./DeleteItem";
 
 function ItemColumn(props) {
   return (

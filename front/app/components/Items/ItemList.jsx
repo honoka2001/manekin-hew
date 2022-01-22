@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import ItemColumn from './ItemColumn';
+import handleItemDelete from './DeleteItem';
 
 function ItemList() {
 
@@ -20,13 +21,19 @@ function ItemList() {
     <div>
       <h1>ItemList</h1>
       <ul>
-        {items.map((item) => {
+        {items.map((item, index) => {
           return (
-            <ItemColumn
-              key={item.id}
-              name={item.name}
-              image={item.image.url}
-            />
+            <>
+              <ItemColumn
+                key={index}
+                name={item.name}
+                image={item.image.url}
+              />
+              <form onSubmit={handleItemDelete(item)}>
+                <button type='submit'>削除</button>
+              </form>
+            </>
+            
           )
         })}
       </ul>

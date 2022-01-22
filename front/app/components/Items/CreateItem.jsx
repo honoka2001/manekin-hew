@@ -27,23 +27,25 @@ function CreateItem() {
     return (
         <>
             <p>ファイル送信</p>
-            <input
-                type="text"
-                placeholder="ユーザー"
-                onChange={(event) => setUserId(event.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="アイテムの名前"
-                onChange={(event) => setName(event.target.value)}
-            />
-            <input
-                accept="image/*"
-                multiple
-                type="file"
-                onChange={(event) => setImage(event.target.files)}
-            />
-            <button onClick={handleSubmit}>送信</button>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="ユーザー"
+                    onChange={(event) => setUserId(event.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="アイテムの名前"
+                    onChange={(event) => setName(event.target.value)}
+                />
+                <input
+                    accept="image/*"
+                    multiple
+                    type="file"
+                    onChange={(event) => setImage(event.target.files)}
+                />
+                <button type='submit'>送信</button>
+            </form>
         </>
     );
 }
