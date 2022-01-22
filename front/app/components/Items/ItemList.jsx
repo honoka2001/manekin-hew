@@ -29,7 +29,9 @@ function ItemList() {
                 name={item.name}
                 image={item.image.url}
               />
-              <button onClick={() => handleItemDelete(item)}>削除</button>
+              <form onSubmit={handleItemDelete(item)}>
+                <button type='submit'>削除</button>
+              </form>
             </>
             
           )
