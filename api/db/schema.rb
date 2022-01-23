@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_142716) do
+ActiveRecord::Schema.define(version: 2022_01_23_035749) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -18,7 +18,22 @@ ActiveRecord::Schema.define(version: 2022_01_10_142716) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "image"
+    t.bigint "manekin_id"
+    t.index ["manekin_id"], name: "index_items_on_manekin_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "manekins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "price"
+    t.string "image"
+    t.bigint "user_id", null: false
+    t.bigint "buyer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_id"], name: "index_manekins_on_buyer_id"
+    t.index ["user_id"], name: "index_manekins_on_user_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -32,7 +47,13 @@ ActiveRecord::Schema.define(version: 2022_01_10_142716) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "introduction"
+    t.string "avatar"
+    t.string "name"
   end
 
+  add_foreign_key "items", "manekins"
   add_foreign_key "items", "users"
+  add_foreign_key "manekins", "users"
+  add_foreign_key "manekins", "users", column: "buyer_id"
 end
