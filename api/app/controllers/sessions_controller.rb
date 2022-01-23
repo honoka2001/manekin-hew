@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 		end
 	end
 
-	def delete
+	def destroy
 		reset_session
 		render json: {logged_out: true}, status: 200
 	end
