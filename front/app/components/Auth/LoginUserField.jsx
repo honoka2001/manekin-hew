@@ -10,7 +10,7 @@ export default function LoginUserField() {
 
     const getLoginUser = () => {
         axios
-            .get('http://localhost:3000/logged_in', { withCredentials: true })
+            .get('http://localhost:3000/login', { withCredentials: true })
             .then((res) => {
                 console.log(res);
                 setUser(res.data.user);

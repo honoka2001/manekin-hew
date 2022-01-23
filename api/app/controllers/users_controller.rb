@@ -1,7 +1,7 @@
-class RegistrationsController < ApplicationController
+class UsersController < ApplicationController
 
-	def signup
-		@user = User.new(registrations_params)
+	def create
+		@user = User.new(create_user_params)
 
 		if @user.save
 				login!
@@ -13,7 +13,7 @@ class RegistrationsController < ApplicationController
 
 	private
 
-		def registrations_params
+		def create_user_params
 				params.require(:user).permit(:email, :password, :password_confirmation)
 		end
 
