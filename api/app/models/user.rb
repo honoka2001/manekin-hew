@@ -1,5 +1,10 @@
 class User < ApplicationRecord
+    mount_uploader :image, AvatarUploader
 	has_secure_password
+
+    has_many :items, dependent: :destroy
+    has_many :manekins, dependent: :destroy
+    has_many :manekins, foreign_key: :buyer_id
 
     validates :email, presence: true
     validates :email, uniqueness: true
