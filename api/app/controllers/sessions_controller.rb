@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	def login
+	def create
 		@user = User.find_by(email: session_params[:email])
 
 		if @user && @user.authenticate(session_params[:password])
@@ -10,12 +10,12 @@ class SessionsController < ApplicationController
 		end
 	end
 
-	def logout
+	def destroy
 		reset_session
 		render json: {logged_out: true}, status: 200
 	end
 
-	def logged_in?
+	def show
 		if current_user
 				render json: { logged_in: true, user: current_user }
 		else
