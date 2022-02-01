@@ -6,6 +6,12 @@ function CreateItem() {
     const [user_id, setUserId] = useState();
     const [name, setName] = useState();
     const [image, setImage] = useState();
+    const [preview, setPreview] = useState();
+
+    const handlePreview = (e) => {
+        const { files } = e.target;
+        setPreview(window.URL.createObjectURL(files[0]));
+    };
 
     const handleSubmit = () => {
         const file = new FormData();
@@ -42,8 +48,12 @@ function CreateItem() {
                     accept="image/*"
                     multiple
                     type="file"
-                    onChange={(event) => setImage(event.target.files)}
+                    onChange={(event) => {
+                        setImage(event.target.files);
+                        handlePreview(event);
+                    }}
                 />
+                <img src={preview} />
                 <button type='submit'>送信</button>
             </form>
         </>
