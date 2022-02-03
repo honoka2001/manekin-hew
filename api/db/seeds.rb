@@ -29,5 +29,7 @@ Post.create!(
   User.create!(
     email: "test#{n + 1}@test.com",
     password_digest: "pass#{n + 1}",
+    name: "なまえ#{n + 1}",
+    height: "#{n + 160}",
   )
 end
