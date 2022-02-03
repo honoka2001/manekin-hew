@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 
 export default function RegistrationForm() {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -16,6 +17,7 @@ export default function RegistrationForm() {
                 'http://localhost:3000/signup',
                 {
                     user: {
+                        name: name,
                         email: email,
                         password: password,
                         password_confirmation: passwordConfirmation,
@@ -39,6 +41,13 @@ export default function RegistrationForm() {
             {error_message}
 
             <form onSubmit={handleSubmit}>
+                <input
+                    type="name"
+                    name="name"
+                    placeholder="ニックネーム"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
                 <input
                     type="email"
                     name="email"
