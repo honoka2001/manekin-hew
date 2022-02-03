@@ -31,3 +31,25 @@
     padding: 0.4rem 0.5rem;
     margin: 0 2rem 0 0.5rem;
 }
+
+.login_user_area{
+	display: flex;
+	align-items: center;
+	position: absolute;
+	right: 2rem;
+	font-size: 0.8rem;
+}
+.avatar_image {
+	object-fit: cover;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	margin-right: .5rem;
+}
+.btn_logout {
+	background-color: rgb(255, 96, 96);
+	border-radius: 4px;
+	color: #fff;
+	padding: 0.4rem 0.5rem;
+	margin-left: 1rem;
+}
