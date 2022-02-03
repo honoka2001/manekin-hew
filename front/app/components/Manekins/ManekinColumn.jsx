@@ -6,11 +6,15 @@ import Link from 'next/link';
 export default function ManekinColumn(props) {
     return (
         <div className={styles.manekin_card}>
-            <img
-                src={props.manekin.image.url}
-                alt="manekin_image"
-                className={styles.manekin_image}
-            />
+            <Link href="/manekin/[id]" as={`/manekin/${props.manekin.id}`}>
+                <a>
+                    <img
+                        src={props.manekin.image.url}
+                        alt="manekin_image"
+                        className={styles.manekin_image}
+                    />
+                </a>
+            </Link>
             <div className={styles.user_area}>
                 {props.manekin.user.image ? (
                     <img
