@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_035749) do
     t.string "introduction"
     t.string "avatar"
     t.string "name"
+    t.integer "height"
   end
 
   add_foreign_key "items", "manekins"
