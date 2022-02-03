@@ -1,0 +1,45 @@
+.manekin_card {
+    display: flex;
+    flex-direction: column;
+    /* border: 0.5px solid rgba(135, 135, 135, 0.6); */
+		padding-bottom: .5rem;
+		box-shadow: 0px 1px 14px 0 rgb(0 0 0 / 7%);
+}
+
+.manekin_image {
+    height: auto;
+    /* object-fit: contain; */
+    width: 300px;
+    /* height: 400px; */
+}
+.user_area {
+    display: flex;
+    padding: 0.5rem 1rem;
+}
+.avatar_image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.user_text_area {
+    margin-left: 0.5rem;
+}
+
+.user_name {
+}
+
+.user_height {
+}
+
+.manekin_title {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+}
+
+.manekin_price {
+    padding: 0 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: rgb(208, 33, 33);
+}
