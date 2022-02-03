@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import styles from '../../styles/Header.module.css';
 
 export default function LogoutButton() {
     const [user, setUser] = useState([]);
@@ -18,7 +19,7 @@ export default function LogoutButton() {
 
     return (
         <div>
-            <button onClick={handleLogoutClick}>ログアウト</button>
+            <button onClick={handleLogoutClick} className={styles.btn_logout}>ログアウト</button>
         </div>
     );
 }
