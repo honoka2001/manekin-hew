@@ -36,42 +36,47 @@ export default function RegistrationForm() {
     };
 
     return (
-        <div>
-            <p>新規登録</p>
-            {error_message}
+        <div className='flex justify-center mt-40'>
+            <div>
+                <img src="/header_logo.svg" alt="logo" /><br />
+                {error_message}
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="name"
+                        name="name"
+                        placeholder="ニックネーム"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-2'
+                    /><br />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="メールアドレス"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-2'
+                    /><br />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="パスワード"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-2'
+                    /><br />
+                    <input
+                        type="password"
+                        name="password_confirmation"
+                        placeholder="確認用パスワード"
+                        value={passwordConfirmation}
+                        onChange={(e) => setPasswordConfirmation(e.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-2'
+                    />
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="name"
-                    name="name"
-                    placeholder="ニックネーム"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="メールアドレス"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="パスワード"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <input
-                    type="password"
-                    name="password_confirmation"
-                    placeholder="確認用パスワード"
-                    value={passwordConfirmation}
-                    onChange={(e) => setPasswordConfirmation(e.target.value)}
-                />
-
-                <button type="submit">登録</button>
-            </form>
+                    <button type="submit"  className='bg-red-500 font-bold text-white text-xl py-2 w-full rounded my-6'>登録</button>
+                </form>
+            </div>
         </div>
     );
 }
