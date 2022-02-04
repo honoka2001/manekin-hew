@@ -38,7 +38,7 @@ export default function ManekinDetail() {
                     <img
                         src={manekinImage.url}
                         alt="manekin-img"
-                        className="w-80 h-96 border border-gray-400 ml-8"
+                        className="w-80 h-96 ml-8 object-contain"
                     />
                     <div className="mt-8 ml-10">
                         <h2 className="font-semibold">使用アイテム</h2>
@@ -49,7 +49,7 @@ export default function ManekinDetail() {
                                         <img
                                             src={item.image.url}
                                             alt="item-img"
-                                            className="w-28 h-36 border border-gray-400 flex-none"
+                                            className="w-28 h-36 flex-none object-contain"
                                         />
                                         <p className="my-auto ml-12">{item.name}</p>
                                     </li>
@@ -66,7 +66,7 @@ export default function ManekinDetail() {
                         <div className="flex my-3">
                             <img
                                 src="/sample.png"
-                                className="border border-gray-300 rounded-full w-12 h-12 flex-none ml-2"
+                                className="rounded-full w-12 h-12 flex-none ml-2"
                             />
                             <div className="flex-auto ml-3">
                                 <p>{user.name}</p>
@@ -89,7 +89,7 @@ export default function ManekinDetail() {
                         cols="100"
                         rows="5"
                         placeholder="コメントする"
-                        className="border border-gray-300 w-11/12 rounded-lg"
+                        className="border border-gray-300 w-11/12 rounded-lg py-4 px-6"
                     ></textarea>
                     <br />
                     <button className="bg-gray-600 font-bold text-white py-2 w-11/12 rounded my-2">
