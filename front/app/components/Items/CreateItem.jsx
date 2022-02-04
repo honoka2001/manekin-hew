@@ -31,32 +31,37 @@ function CreateItem() {
     };
 
     return (
-        <>
-            <p>ファイル送信</p>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="ユーザー"
-                    onChange={(event) => setUserId(event.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="アイテムの名前"
-                    onChange={(event) => setName(event.target.value)}
-                />
-                <input
-                    accept="image/*"
-                    multiple
-                    type="file"
-                    onChange={(event) => {
-                        setImage(event.target.files);
-                        handlePreview(event);
-                    }}
-                />
-                <img src={preview} />
-                <button type='submit'>送信</button>
-            </form>
-        </>
+        <div className='flex justify-center mt-40'>
+            <div>
+                <p className="font-bold text-4xl text-center">アイテムを作成</p><br />
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="ユーザー"
+                        onChange={(event) => setUserId(event.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4'
+                    /><br />
+                    <input
+                        type="text"
+                        placeholder="アイテムの名前"
+                        onChange={(event) => setName(event.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4'
+                    /><br />
+                    <input
+                        accept="image/*"
+                        multiple
+                        type="file"
+                        onChange={(event) => {
+                            setImage(event.target.files);
+                            handlePreview(event);
+                        }}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4'
+                    /><br />
+                    <img src={preview} /><br />
+                    <button type='submit' className='bg-red-500 font-bold text-white text-xl py-2 w-full rounded'>送信</button>
+                </form>
+            </div>
+        </div>
     );
 }
 

@@ -48,50 +48,56 @@ function ManekinForm() {
     };
 
     return (
-        <>
-            <p>ファイル送信</p>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="ユーザー"
-                    onChange={(event) => setUserId(event.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="タイトル"
-                    onChange={(event) => setTitle(event.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="内容"
-                    onChange={(event) => setContent(event.target.value)}
-                />
-                <input
-                    type="number"
-                    placeholder="値段"
-                    onChange={(event) => setPrice(event.target.value)}
-                />
-                <input
-                    accept="image/*"
-                    multiple
-                    type="file"
-                    onChange={(event) => setImage(event.target.files)}
-                />
-                <p>
-                    現在選択されている値：<b>{item_ids.join('、')}</b>
-                </p>
-                {items.map((item) => {
-                    return (
-                        <label key={item.id}>
-                            <input type="checkbox" value={item.id} onChange={handleChange} />
-                            {item.name}
-                        </label>
-                    );
-                })}
-                <button type="submit">送信</button>
-            </form>
-                <ManekinShow/>
-        </>
+        <div className='flex justify-center mt-40'>
+            <div>
+                <h1 className="font-bold text-4xl text-center">MANEKINを出品</h1><br />
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="ユーザー"
+                        onChange={(event) => setUserId(event.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4'
+                    /><br />
+                    <input
+                        type="text"
+                        placeholder="タイトル"
+                        onChange={(event) => setTitle(event.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4'
+                    /><br />
+                    <input
+                        type="text"
+                        placeholder="内容"
+                        onChange={(event) => setContent(event.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4'
+                    /><br />
+                    <input
+                        type="number"
+                        placeholder="値段"
+                        onChange={(event) => setPrice(event.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4'
+                    /><br />
+                    <input
+                        accept="image/*"
+                        multiple
+                        type="file"
+                        onChange={(event) => setImage(event.target.files)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4'
+                    /><br />
+                    <p>
+                        現在選択されている値：<b>{item_ids.join('、')}</b>
+                    </p><br />
+                    {items.map((item) => {
+                        return (
+                            <label key={item.id}>
+                                <input type="checkbox" value={item.id} onChange={handleChange} />
+                                {item.name}<br />
+                            </label>
+                        );
+                    })}
+                    <button type="submit" className='bg-red-500 font-bold text-white text-xl py-2 w-full rounded my-2'>送信</button>
+                </form>
+            </div>
+        </div>
     );
 }
 
