@@ -76,6 +76,9 @@ export default function RegistrationForm() {
 
                     <button type="submit"  className='bg-red-500 font-bold text-white text-xl py-2 w-full rounded my-6'>登録</button>
                 </form>
+                <div className='text-center'>
+                    <a href="/auth/login" className='text-blue-500'>こちらからログイン</a>
+                </div>
             </div>
         </div>
     );
