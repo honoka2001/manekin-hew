@@ -32,27 +32,30 @@ export default function LoginForm() {
     };
 
     return (
-        <div>
-            <p>ログイン</p>
-            {error_message}
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="メールアドレス"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="パスワード"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-
-                <button type="submit">ログインする</button>
-            </form>
+        <div className='flex justify-center mt-40'>
+            <div>
+                <img src="/header_logo.svg" alt="logo" /><br />
+                {error_message}
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="メールアドレス"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4'
+                    /><br />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="パスワード"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline'
+                    /><br />
+                    <button type="submit" className='bg-red-500 font-bold text-white text-xl py-2 w-full rounded my-10'>ログインする</button>
+                </form>
+            </div>
         </div>
     );
 }
