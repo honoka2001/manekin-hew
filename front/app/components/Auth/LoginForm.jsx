@@ -53,8 +53,11 @@ export default function LoginForm() {
                         onChange={(e) => setPassword(e.target.value)}
                         className='border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline'
                     /><br />
-                    <button type="submit" className='bg-red-500 font-bold text-white text-xl py-2 w-full rounded my-10'>ログインする</button>
+                    <button type="submit" className='bg-red-500 font-bold text-white text-xl py-2 w-full rounded my-6'>ログインする</button>
                 </form>
+                <div className='text-center'>
+                    <a href="/auth/registration" className='text-blue-500'>新規登録はこちら</a>
+                </div>
             </div>
         </div>
     );
