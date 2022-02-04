@@ -94,7 +94,7 @@ function ManekinForm() {
                             </label>
                         );
                     })}
-                    <button type="submit" className='bg-red-500 font-bold text-white text-xl py-2 w-full rounded my-4'>送信</button>
+                    <button type="submit" className='bg-red-500 font-bold text-white text-xl py-2 w-full rounded my-2'>送信</button>
                 </form>
             </div>
         </div>
