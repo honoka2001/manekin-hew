@@ -29,11 +29,16 @@ function ManekinForm() {
         file.append('image', image[0]);
 
         axios
-            .post('http://localhost:3000/manekins', file, {
-                headers: {
-                    'content-type': 'multipart/form-data',
-                },
-            })
+            .post(
+                'http://localhost:3000/manekins',
+                file,
+                { withCredentials: true },
+                {
+                    headers: {
+                        'content-type': 'multipart/form-data',
+                    },
+                }
+            )
             .then((response) => {
                 console.log(response);
             });

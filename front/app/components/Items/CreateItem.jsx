@@ -20,11 +20,16 @@ function CreateItem() {
         file.append('image', image[0]);
 
         axios
-            .post('http://localhost:3000/items', file, {
-                headers: {
-                    'content-type': 'multipart/form-data',
-                },
-            })
+            .post(
+                'http://localhost:3000/items',
+                file,
+                { withCredentials: true },
+                {
+                    headers: {
+                        'content-type': 'multipart/form-data',
+                    },
+                }
+            )
             .then((response) => {
                 console.log(response);
             });
