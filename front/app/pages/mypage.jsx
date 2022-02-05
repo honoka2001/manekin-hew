@@ -1,11 +1,12 @@
 import React from 'react';
-import LoginUserField from '../components/Auth/LoginUserField';
+import Header from '../components/Header/Header';
+import ManekinCreateButton from '../components/Users/ManekinCreateButton';
 
 export default function mypage() {
     return (
         <div>
-            <h1>マイページ</h1>
-            <LoginUserField />
+            <Header />
+            <ManekinCreateButton/>
         </div>
     );
 }
