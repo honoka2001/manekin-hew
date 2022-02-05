@@ -42,7 +42,7 @@ class ManekinsController < ApplicationController
     end
 
     def manekin_params
-			params.permit(:title, :content, :price, :image, :user_id, :item_ids)
+			params.permit(:title, :content, :price, :image, :item_ids).merge(user_id: current_user.id)
     end
 
 end
