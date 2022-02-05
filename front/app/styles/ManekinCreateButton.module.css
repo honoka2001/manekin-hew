@@ -1,0 +1,21 @@
+.container {
+	position: fixed;
+	right: 80px;
+	bottom: 50px;
+}
+.btn_create {
+	background-color: rgb(255, 52, 52);
+	color: #fff;
+	font-weight: bold;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+.btn_create:hover{
+	background-color: rgba(255, 52, 52, 0.57);
+	color: #fff;
+	font-weight: bold;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
