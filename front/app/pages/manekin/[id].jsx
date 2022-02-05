@@ -33,7 +33,7 @@ export default function ManekinDetail() {
 
     return (
         <div className="bg-gray-100">
-            <div className=" bg-white flex justify-center w-3/5 container mx-auto">
+            <div className=" bg-white flex justify-center w-3/5 container mx-auto h-screen">
                 <div className="flex-auto container mt-4 ml-8">
                     <img
                         src={manekinImage.url}
