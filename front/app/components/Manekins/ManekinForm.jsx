@@ -103,6 +103,7 @@ function ManekinForm() {
                             <label key={item.id}>
                                 <input type="checkbox" value={item.id} onChange={handleChange} />
                                 {item.name}
+                                <img src={item.image.url} />
                                 <br />
                             </label>
                         );
