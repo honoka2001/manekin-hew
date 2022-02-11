@@ -9,6 +9,7 @@ function ManekinForm() {
     const [content, setContent] = useState();
     const [price, setPrice] = useState();
     const [item_ids, setItemIds] = useState([]);
+    const [preview, setPreview] = useState();
 
     useEffect(() => {
         axios.get('http://localhost:3000/items', { withCredentials: true }).then((response) => {
@@ -16,6 +17,11 @@ function ManekinForm() {
             setItems(response.data.items);
         });
     }, []);
+
+    const handlePreview = (e) => {
+        const { files } = e.target;
+        setPreview(window.URL.createObjectURL(files[0]));
+    };
 
     const handleSubmit = () => {
         const file = new FormData();
@@ -80,10 +86,14 @@ function ManekinForm() {
                         accept="image/*"
                         multiple
                         type="file"
-                        onChange={(event) => setImage(event.target.files)}
+                        onChange={(event) => {
+                            setImage(event.target.files);
+                            handlePreview(event);
+                        }}
                         className="border border-gray-400 rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline my-4"
                     />
                     <br />
+                    <img src={preview} />
                     <p>
                         現在選択されている値：<b>{item_ids.join('、')}</b>
                     </p>
@@ -93,6 +103,7 @@ function ManekinForm() {
                             <label key={item.id}>
                                 <input type="checkbox" value={item.id} onChange={handleChange} />
                                 {item.name}
+                                <img src={item.image.url} />
                                 <br />
                             </label>
                         );
