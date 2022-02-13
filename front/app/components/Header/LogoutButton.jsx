@@ -12,7 +12,7 @@ export default function LogoutButton() {
             .delete('http://localhost:3000/logout', { withCredentials: true })
             .then((res) => {
                 setUser({});
-                router.push('/auth/login');
+                router.push('/auth/registration');
             })
             .catch((error) => console.log('ログアウトエラー', error));
     };
