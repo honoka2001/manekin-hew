@@ -29,10 +29,8 @@ ActiveRecord::Schema.define(version: 2022_01_23_035749) do
     t.integer "price"
     t.string "image"
     t.bigint "user_id", null: false
-    t.bigint "buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["buyer_id"], name: "index_manekins_on_buyer_id"
     t.index ["user_id"], name: "index_manekins_on_user_id"
   end
 
@@ -56,5 +54,4 @@ ActiveRecord::Schema.define(version: 2022_01_23_035749) do
   add_foreign_key "items", "manekins"
   add_foreign_key "items", "users"
   add_foreign_key "manekins", "users"
-  add_foreign_key "manekins", "users", column: "buyer_id"
 end

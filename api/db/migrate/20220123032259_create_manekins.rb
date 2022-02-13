@@ -6,10 +6,8 @@ class CreateManekins < ActiveRecord::Migration[6.0]
       t.integer :price
       t.string :image
       t.references :user, null: false, foreign_key: true
-      t.references :buyer
 
       t.timestamps
     end
-    add_foreign_key :manekins, :users, column: :buyer_id
   end
 end
