@@ -42,7 +42,7 @@ export default function Header() {
                     ) : (
                         <img src="/sample.png" alt="avatar_image" className={styles.avatar_image} />
                     )}
-                    <Link href="/mypage">
+                    <Link href="/user/[id]" as={`/user/${user.id}`}>
                         <p>{user.name}</p>
                     </Link>
                     <LogoutButton />
