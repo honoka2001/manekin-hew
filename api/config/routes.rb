@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
+  resources :users, only: %i[index show]
   resources :items, only: %i[index create destroy]
   resources :manekins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

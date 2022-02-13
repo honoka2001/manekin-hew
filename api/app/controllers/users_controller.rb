@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+	def show
+		user = User.find(params[:id])
+		manekins = user.manekins
+		is_current_user = user.is_current_user?(current_user.id)
+
+		render json: {user: user, manekins: manekins, is_current_user: is_current_user}
+	end
+
 	def create
 		@user = User.new(create_user_params)
 
@@ -14,7 +22,7 @@ class UsersController < ApplicationController
 	private
 
 		def create_user_params
-				params.require(:user).permit(:name, :email, :password, :password_confirmation)
+			params.require(:user).permit(:name, :email, :password, :password_confirmation)
 		end
 
 end

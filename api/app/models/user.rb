@@ -4,9 +4,12 @@ class User < ApplicationRecord
 
     has_many :items, dependent: :destroy
     has_many :manekins, dependent: :destroy
-    has_many :manekins, foreign_key: :buyer_id
 
     validates :email, presence: true
     validates :email, uniqueness: true
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+
+    def is_current_user?(current_user_id)
+        current_user_id == self.id
+    end
 end

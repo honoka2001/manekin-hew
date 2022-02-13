@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import ItemColumn from '../../components/Items/ItemColumn';
+import Link from 'next/link';
 
 export default function ManekinDetail() {
     const router = useRouter();
@@ -64,14 +65,18 @@ export default function ManekinDetail() {
                     <div>
                         <h2 className="font-semibold">出品者</h2>
                         <div className="flex my-3">
-                            <img
-                                src="/sample.png"
-                                className="rounded-full w-12 h-12 flex-none ml-2"
-                            />
-                            <div className="flex-auto ml-3">
-                                <p>{user.name}</p>
-                                <p>{user.height}cm</p>
-                            </div>
+                            <Link href="/user/[id]" as={`/user/${user.id}`}>
+                                <a>
+                                    <img
+                                        src="/sample.png"
+                                        className="rounded-full w-12 h-12 flex-none ml-2"
+                                    />
+                                    <div className="flex-auto ml-3">
+                                        <p>{user.name}</p>
+                                        <p>{user.height}cm</p>
+                                    </div>
+                                </a>
+                            </Link>
                         </div>
                     </div>
                     <div>
