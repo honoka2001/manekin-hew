@@ -1,0 +1,35 @@
+.user_area {
+    display: flex;
+    padding: 100px 25vw 100px 25vw;
+    height: 300px;
+    background-color: #fff;
+}
+.avatar_image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 3rem;
+}
+.user_text_area {
+    margin-left: 0.5rem;
+}
+
+.user_name {
+    font-size: 3rem;
+}
+
+.user_height {
+}
+
+.manekin_title {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+}
+
+.manekin_price {
+    padding: 0 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: rgb(208, 33, 33);
+}
