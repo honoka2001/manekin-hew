@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../../styles/UserField.module.css';
+import Link from 'next/link';
 
 export default function UserField(props) {
 
@@ -15,7 +16,12 @@ export default function UserField(props) {
                     <p className={styles.user_name}>{props.user.name}</p>
                     <p className={styles.user_height}>{props.user.height}cm</p>
                 </div>
-                {props.isCurrentUser && <a>編集する</a>}
+                {
+                    props.isCurrentUser && 
+                    <Link href="/user/edit">
+                        <a>編集する</a>
+                    </Link>
+                }
             </div>
         </div>
     );
