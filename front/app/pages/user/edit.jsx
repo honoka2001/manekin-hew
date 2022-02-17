@@ -1,43 +1,54 @@
 import React from 'react';
-import styles from '../../styles/profile.module.css';
+import { useState } from 'react';
 
 export default function Edit() {
+    const [preview, setPreview] = useState();
+
+    const handlePreview = (e) => {
+        const { files } = e.target;
+        setPreview(window.URL.createObjectURL(files[0]));
+    };
+
     return (
         <div>
-            <h1 className={styles.title}>プロフィール設定</h1>
-            <div className={styles.image}>
-                <h2 className={styles.imgs}>画像</h2>
-                <div className={styles.iBox}>
-                    <img src="/00.jpg" alt="user" className={styles.img}/>
+            <h1>プロフィール設定</h1>
+            <div>
+                <h2>画像</h2>
+                <div>
+                    <img src="/00.jpg" alt="user"/>
                     <label>
                         画像を選択する
-                        <input type="file" className={styles.file} />
+                        <input
+                            type="file"
+                            onChange={(event) => {
+                                handlePreview(event);
+                            }}    
+                        />
                     </label>
+                    <img src={preview} />
                 </div>
             </div>
-            <div className={styles.nBox}>
-                <div className={styles.nickName}>
-                    <h2 className={styles.nick}>ニックネーム</h2>
+            <div>
+                <div>
+                    <h2>ニックネーム</h2>
                     <input
                         type="text"
                         name="nickName"
-                        className={styles.name}
                         placeholder="ニックネーム"
                         autoComplete="off"
                     />
                 </div>
-                <div className={styles.height}>
-                    <h2 className={styles.hTitle}>身長</h2>
-                    <input type="number" name="height" className={styles.hInput} autoComplete="off" />
+                <div>
+                    <h2>身長</h2>
+                    <input type="number" name="height" autoComplete="off" />
                     cm
                 </div>
             </div>
-            <div className={styles.selfInt}>
-                <h2 className={styles.sTitle}>自己紹介</h2>
-                <div className={styles.textarea}>
+            <div>
+                <h2>自己紹介</h2>
+                <div>
                     <textarea
                         name="txt"
-                        className={styles.txt}
                         cols={100}
                         rows={7}
                         maxLength={1000}
@@ -46,11 +57,11 @@ export default function Edit() {
                         autoComplete="off"
                         defaultValue={''}
                     />
-                    <p className={styles.length}>0/1000</p>
+                    <p>0/1000</p>
                 </div>
             </div>
-            <div className={styles.button}>
-                <input type="submit" className={styles.update} defaultValue="更新する" />
+            <div>
+                <input type="submit" defaultValue="更新する" />
             </div>
         </div>
     );
