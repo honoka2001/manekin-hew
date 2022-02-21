@@ -31,7 +31,10 @@ export default function Edit() {
             <div className={styles.image}>
                 <h2 className={styles.imgs}>画像</h2>
                 <div className={styles.iBox}>
-                    {user.image ? (
+                    {preview ? (
+                        <img src={preview} alt="avatar_image" className={styles.img} />
+                    ) : (
+                    user.image ? (
                         <img
                             src={user.image.url}
                             alt="avatar_image"
@@ -39,7 +42,7 @@ export default function Edit() {
                         />
                     ) : (
                         <img src="/sample.png" alt="avatar_image" className={styles.img} />
-                    )}
+                    ))}
                     <label>
                         画像を選択する
                         <input
@@ -50,7 +53,6 @@ export default function Edit() {
                             className={styles.file}
                         />
                     </label>
-                    <img src={preview} />
                 </div>
             </div>
             <div className={styles.nBox}>
