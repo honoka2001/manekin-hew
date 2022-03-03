@@ -83,9 +83,13 @@ export default function ManekinDetail() {
                         <h2 className="font-semibold">商品説明</h2>
                         <p className="text-sm mt-3 ml-2">{manekin.content}</p>
                     </div>
-                    <button className="bg-red-500 font-bold text-white text-xl py-2 w-11/12 rounded my-10">
-                        購入に進む
-                    </button>
+                    <Link href="/purchase/[id]" as={`/purchase/${manekin.id}`}>
+                        <a>
+                            <button className="bg-red-500 font-bold text-white text-xl py-2 w-11/12 rounded my-10">
+                                購入に進む
+                            </button>
+                        </a>
+                    </Link>
                     <h2 className="font-semibold text-lg">コメント</h2>
                     <p className="text-gray-600 mt-2 mb-4 ml-6">コメントはまだありません</p>
                     <p className="font-semibold text-gray-600">商品へのコメント</p>
