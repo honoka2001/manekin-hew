@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_23_035749) do
+ActiveRecord::Schema.define(version: 2022_02_21_133015) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "destination_family_name"
+    t.string "destination_first_name"
+    t.string "destination_family_name_kana"
+    t.string "destination_first_name_kana"
+    t.integer "postcode"
+    t.string "region"
+    t.string "locality"
+    t.string "address_street"
+    t.string "address_extended"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -40,6 +56,15 @@ ActiveRecord::Schema.define(version: 2022_01_23_035749) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "manekin_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manekin_id"], name: "index_purchases_on_manekin_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -51,7 +76,10 @@ ActiveRecord::Schema.define(version: 2022_01_23_035749) do
     t.integer "height"
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "items", "manekins"
   add_foreign_key "items", "users"
   add_foreign_key "manekins", "users"
+  add_foreign_key "purchases", "manekins"
+  add_foreign_key "purchases", "users"
 end
