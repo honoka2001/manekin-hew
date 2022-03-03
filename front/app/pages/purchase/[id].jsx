@@ -2,10 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import ItemColumn from '../../components/Items/ItemColumn';
-import Link from 'next/link';
 
-export default function ManekinDetail() {
+export default function purchase() {
     const router = useRouter();
     const [manekin, setManekin] = useState([]);
     const [user, setUser] = useState([]);
@@ -31,6 +29,24 @@ export default function ManekinDetail() {
             });
         }
     }, [id]);
+
+    const onClickPurchaseButton = () => {
+        axios
+            .post(
+                'http://localhost:3000/purchases',
+                {
+                    manekin_id: manekin.id,
+                },
+                { withCredentials: true }
+            )
+            .then((response) => {
+                console.log(response);
+                router.push('/');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
     return (
         <div className="bg-gray-100">
@@ -62,47 +78,11 @@ export default function ManekinDetail() {
                 <div className="flex-auto container mx-auto mt-2">
                     <h1 className="font-bold text-2xl my-5">{manekin.title}</h1>
                     <p className="font-semibold text-3xl text-red-500 mb-5">¥ {manekin.price}</p>
-                    <div>
-                        <h2 className="font-semibold">出品者</h2>
-                        <div className="flex my-3">
-                            <Link href="/user/[id]" as={`/user/${user.id}`}>
-                                <a>
-                                    <img
-                                        src="/sample.png"
-                                        className="rounded-full w-12 h-12 flex-none ml-2"
-                                    />
-                                    <div className="flex-auto ml-3">
-                                        <p>{user.name}</p>
-                                        <p>{user.height}cm</p>
-                                    </div>
-                                </a>
-                            </Link>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className="font-semibold">商品説明</h2>
-                        <p className="text-sm mt-3 ml-2">{manekin.content}</p>
-                    </div>
-                    <Link href="/purchase/[id]" as={`/purchase/${manekin.id}`}>
-                        <a>
-                            <button className="bg-red-500 font-bold text-white text-xl py-2 w-11/12 rounded my-10">
-                                購入に進む
-                            </button>
-                        </a>
-                    </Link>
-                    <h2 className="font-semibold text-lg">コメント</h2>
-                    <p className="text-gray-600 mt-2 mb-4 ml-6">コメントはまだありません</p>
-                    <p className="font-semibold text-gray-600">商品へのコメント</p>
-                    <textarea
-                        name="comment"
-                        cols="100"
-                        rows="5"
-                        placeholder="コメントする"
-                        className="border border-gray-300 w-11/12 rounded-lg py-4 px-6"
-                    ></textarea>
-                    <br />
-                    <button className="bg-gray-600 font-bold text-white py-2 w-11/12 rounded my-2">
-                        コメントを送信
+                    <button
+                        onClick={onClickPurchaseButton}
+                        className="bg-red-500 font-bold text-white text-xl py-2 w-11/12 rounded my-10"
+                    >
+                        購入
                     </button>
                 </div>
             </div>
