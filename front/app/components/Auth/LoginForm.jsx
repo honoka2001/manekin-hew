@@ -23,7 +23,7 @@ export default function LoginForm() {
             )
             .then((res) => {
                 console.log('login response: ', res);
-                router.push('/mypage');
+                router.push('/');
             })
             .catch((error) => {
                 console.log('registration error', error);

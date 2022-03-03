@@ -27,7 +27,7 @@ export default function RegistrationForm() {
             )
             .then((res) => {
                 console.log('registration res', res);
-                router.push('/mypage');
+                router.push('/');
             })
             .catch((error) => {
                 console.log('registration error', error.response);
