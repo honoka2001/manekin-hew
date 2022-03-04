@@ -7,6 +7,7 @@
 		box-shadow: 0px 1px 14px 0 rgb(0 0 0 / 7%);
 		background-color: rgba(255, 255, 255, 0.98);
 		position: fixed;
+		z-index: 20;
 }
 
 .logo {

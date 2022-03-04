@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
 	before_action :set_item, only: %i[destroy]
 
   def index
-    render json: { items: Item.all.order("created_at DESC") }
+    items = current_user.items.order("created_at DESC")
+    render json: { items: items }
   end
 
   def create
