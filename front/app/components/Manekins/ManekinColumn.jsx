@@ -1,45 +1,52 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import styles from '../../styles/ManekinColumn.module.css';
 import Link from 'next/link';
 
 export default function ManekinColumn(props) {
     return (
-        <div className={styles.manekin_card}>
-            <Link href="/manekin/[id]" as={`/manekin/${props.manekin.id}`}>
-                <a>
-                    <img
-                        src={props.manekin.image.url}
-                        alt="manekin_image"
-                        className={styles.manekin_image}
-                    />
-                </a>
-            </Link>
-            <div className={styles.user_area}>
+        <div>
+            <div className="rounded-2xl bg-white w-64 m-auto p-2">
+                <Link href="/manekin/[id]" as={`/manekin/${props.manekin.id}`}>
+                    <a>
+                        <img
+                            src={props.manekin.image.url}
+                            alt="manekin_image"
+                            className=" p-1 h-60 m-auto object-cover hover:opacity-75"
+                        />
+                    </a>
+                </Link>
+                <div className="bg-white-100 m-1 p-1 rounded-lg">
+                    <p className="text-gray-700 text-xl ">{props.manekin.title}</p>
+                    <p className="text-red-500 text-xl font-bold ">¥ {props.manekin.price}</p>
+                </div>
                 <Link href="/user/[id]" as={`/user/${props.manekin.user.id}`}>
                     <a>
-                        {props.manekin.user.image ? (
-                            <img
-                                src={props.manekin.user.image.url}
-                                alt="avatar_image"
-                                className={styles.avatar_image}
-                            />
-                        ) : (
-                            <img
-                                src="/sample.png"
-                                alt="avatar_image"
-                                className={styles.avatar_image}
-                            />
-                        )}
-                        <div className={styles.user_text_area}>
-                            <p className={styles.user_name}>{props.manekin.user.name}</p>
-                            <p className={styles.user_height}>{props.manekin.user.height}cm</p>
+                        <div className="flex-row gap-2 flex p-1 hover:opacity-75">
+                            <div className="flex-shrink-0 ">
+                                {props.manekin.user.image ? (
+                                    <img
+                                        src={props.manekin.user.image.url}
+                                        alt="avatar_image"
+                                        className="mx-auto object-cover rounded-full h-9 w-9  hover:opacity-75"
+                                    />
+                                ) : (
+                                    <img
+                                        src="/sample.png"
+                                        alt="avatar_image"
+                                        className="mx-auto object-cover rounded-full h-9 w-9  hover:opacity-75"
+                                    />
+                                )}
+                            </div>
+                            <div className=" flex flex-col ">
+                                <span className="text-gray-600 text-sm">{props.manekin.user.name}</span>
+                                <span className="text-gray-400 text-xs">
+                                    {props.manekin.user.height}cm
+                                </span>
+                            </div>
                         </div>
                     </a>
                 </Link>
             </div>
-            <p className={styles.manekin_title}>{props.manekin.title}</p>
-            <p className={styles.manekin_price}>¥ {props.manekin.price}</p>
         </div>
     );
 }
