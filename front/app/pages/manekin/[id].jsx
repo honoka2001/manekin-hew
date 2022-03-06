@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import ItemColumn from '../../components/Items/ItemColumn';
 import Link from 'next/link';
+import Header from '../../components/Header/Header';
 
 export default function ManekinDetail() {
     const router = useRouter();
@@ -33,8 +34,9 @@ export default function ManekinDetail() {
     }, [id]);
 
     return (
-        <div className="bg-gray-100">
-            <div className=" bg-white flex justify-center w-3/5 container mx-auto h-screen">
+        <div className="bg-gray-100 h-screen">
+            <Header />
+            <div className=" bg-white flex justify-center w-3/5 container mx-auto h-screen pt-16">
                 <div className="flex-auto container mt-4 ml-8">
                     <img
                         src={manekinImage.url}
