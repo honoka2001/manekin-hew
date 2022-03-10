@@ -7,6 +7,7 @@ import styles from '../../styles/Header.module.css';
 
 export default function Header() {
     const [user, setUser] = useState([]);
+    const [avatar, setAvatar] = useState('');
 
     useEffect(() => {
         getLoginUser();
@@ -18,10 +19,12 @@ export default function Header() {
             .then((res) => {
                 console.log(res);
                 setUser(res.data.user);
+                setAvatar(res.data.user.avatar);
             })
             .catch((data) => {
                 console.log(data);
                 setUser({});
+                setAvatar();
             });
     };
     return (
@@ -33,9 +36,9 @@ export default function Header() {
             </div>
             {user ? (
                 <div className={styles.login_user_area}>
-                    {user.image ? (
+                    {avatar.url ? (
                         <img
-                            src={user.image.url}
+                            src={avatar.url}
                             alt="avatar_image"
                             className={styles.avatar_image}
                         />
