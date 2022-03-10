@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :posts
 
-  resources :users, only: %i[index show] do
+  resources :users, only: %i[index show update] do
     resource :address
   end
 
