@@ -43,7 +43,7 @@ export default function ItemForm() {
                         </span>
                         アイテムを作成
                     </h2>
-                    <p className="text-center text-sm text-gray-700 mb-6">
+                    <p className="text-center text-sm font-semibold text-gray-700 mb-6">
                         売りたい服、着る予定のない服を登録しよう！
                     </p>
                 </div>
@@ -52,7 +52,7 @@ export default function ItemForm() {
                     <img src="/item_form.svg" alt="item_form" className="h-64 mr-8" />
 
                     <form onSubmit={handleSubmit} className="w-2/5">
-                        <p className="text-sm text-gray-700">アイテムの名前</p>
+                        <p className="text-sm text-gray-700 font-semibold ">アイテムの名前</p>
                         <input
                             type="text"
                             placeholder="アイテムの名前"
@@ -60,7 +60,7 @@ export default function ItemForm() {
                             className="block text-sm mb-3 py-3 px-4 rounded-lg w-full border outline-none border-gray-400 "
                         />
 
-                        <p className="text-sm text-gray-700">アイテムの写真</p>
+                        <p className="text-sm text-gray-700 font-semibold ">アイテムの写真</p>
                         <div className="border-dashed border-2 border-gray-400 flex flex-col justify-center items-center mb-3">
                             {preview ? (
                                 <img
