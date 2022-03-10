@@ -1,0 +1,188 @@
+.title {
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    margin: 50px auto 30px;
+}
+.image {
+    width: 500px;
+    height: 150px;
+    margin: 0 auto;
+}
+.image .iBox {
+    display: flex;
+}
+.image .iBox label {
+    text-align: center;
+    font-weight: 600;
+    width: 130px;
+    height: 42px;
+    padding: 7px;
+    border: solid 2px;
+    border-color: red;
+    color: red;
+    background-color: white;
+
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.image .iBox label:hover {
+    text-align: center;
+    font-weight: 600;
+    width: 130px;
+    height: 42px;
+    padding: 7px;
+    border: solid 2px;
+    border-color: rgb(233, 0, 0);
+    color: red;
+    background-color: rgb(233, 233, 233);
+
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.image .imgs {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+.image .img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    /* position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  object-fit: cover; */
+}
+.image .file {
+    width: 130px;
+    height: 42px;
+    display: none;
+}
+.nBox {
+    display: flex;
+    justify-content: center;
+}
+.nickName {
+    width: 300px;
+    height: 100px;
+
+    float: left;
+}
+.nickName .nick {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+.nickName .name {
+    width: 200px;
+    height: 30px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid 2px #999999;
+}
+.nickName .name:focus {
+    outline: none;
+    border-bottom: solid 2px;
+    border-color: red;
+}
+.nickName .name {
+    padding-left: 5px;
+    font-size: 15px;
+}
+.height {
+    width: 200px;
+    height: 100px;
+}
+.height .hTitle {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+.height .hInput {
+    text-align: left;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid 2px #999999;
+    width: 45px;
+    height: 30px;
+}
+.height .hInput:focus {
+    outline: none;
+    border-bottom: solid 2px;
+    border-color: red;
+}
+.height .hInput {
+    font-size: 15px;
+    text-align: right;
+}
+.selfInt {
+    width: 500px;
+    height: 200px;
+    margin: auto;
+}
+.selfInt .sTitle {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+.selfInt .txt {
+    display: inline-block;
+    width: 500px;
+    height: 105px;
+    padding: 0.5em;
+    border: 2px solid #999;
+    box-sizing: border-box;
+}
+.selfInt .txt:focus {
+    outline: none;
+    border: solid 2px;
+    border-color: red;
+}
+.selfInt .textarea {
+    height: 140px;
+}
+.selfInt .textarea .length {
+    text-align: right;
+    width: 50px;
+    height: 20px;
+    margin: -5px 0 0 auto;
+
+    font-size: 13px;
+}
+.button {
+    width: 500px;
+    height: 40px;
+    margin: auto;
+}
+.update {
+    font-weight: 600;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    width: 500px;
+    height: 40px;
+}
+
+.update:hover {
+    font-weight: 600;
+    color: rgb(233, 233, 233);
+    background-color: rgb(233, 0, 0);
+    border: none;
+    border-radius: 5px;
+    width: 500px;
+    height: 40px;
+}
