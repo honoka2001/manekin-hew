@@ -16,56 +16,55 @@ export default function statistic() {
         <div>
             <Header />
             <section className="h-screen bg-pink-500">
-                    <div className="m-auto block pt-16 pb-4 border-b-2 rounded mb-4 bg-white">
-                        <div className="flex justify-center items-center mx-20 space-x-4">
-                            <div class="px-7 py-3 mr-4 bg-pink-500 rounded-full">
-                                <h2 class="text font-semibold text-center text-white ">
-                                    現在の MANEKIN 利用分析
-                                </h2>
-                            </div>
+                <div className="m-auto block pt-16 pb-4 border-b-2 rounded mb-4 bg-white">
+                    <div className="flex justify-center items-center mx-20 space-x-4">
+                        <div class="px-7 py-3 mr-4 bg-pink-500 rounded-full">
+                            <h2 class="text font-semibold text-center text-white ">
+                                現在の MANEKIN 利用分析
+                            </h2>
+                        </div>
 
-                            <div class="rounded-full px-9 py-3 bg-white">
-                                <p class="font-bold text-sm text-center text-pink-500">
-                                    出品アイテム数
-                                </p>
-                                <p class="text-3xl font-semibold text-center text-pink-500">
-                                    {statistics.selling_items_count}
-																		<span className=' text-sm ml-2'>着</span>
-                                </p>
-                            </div>
+                        <div class="rounded-full px-9 py-3 bg-white">
+                            <p class="font-bold text-sm text-center text-pink-500">
+                                出品アイテム数
+                            </p>
+                            <p class="text-3xl font-semibold text-center text-pink-500">
+                                {statistics.selling_items_count}
+                                <span className=" text-sm ml-2">着</span>
+                            </p>
+                        </div>
 
-                            <div class="rounded-full px-9 py-3 bg-white">
-                                <p class="font-bold text-sm text-center text-pink-500">
-                                    購入済みアイテム数
-                                </p>
-                                <p class="text-3xl font-semibold text-center text-pink-500">
-                                    {statistics.purchased_items_count}
-																		<span className=' text-sm ml-2'>着</span>
-                                </p>
-                            </div>
+                        <div class="rounded-full px-9 py-3 bg-white">
+                            <p class="font-bold text-sm text-center text-pink-500">
+                                購入済みアイテム数
+                            </p>
+                            <p class="text-3xl font-semibold text-center text-pink-500">
+                                {statistics.purchased_items_count}
+                                <span className=" text-sm ml-2">着</span>
+                            </p>
+                        </div>
 
-                            <div class="rounded-full px-9 py-3 bg-white">
-                                <p class="font-bold text-sm text-center text-pink-500">
-                                    アイテム購入率
-                                </p>
-                                <p class="text-3xl font-semibold text-center text-pink-500">
-                                    {statistics.purchased_item_per}
-																		<span className=' text-sm ml-2'>%</span>
-                                </p>
-                            </div>
+                        <div class="rounded-full px-9 py-3 bg-white">
+                            <p class="font-bold text-sm text-center text-pink-500">
+                                アイテム購入率
+                            </p>
+                            <p class="text-3xl font-semibold text-center text-pink-500">
+                                {statistics.purchased_item_per}
+                                <span className=" text-sm ml-2">%</span>
+                            </p>
+                        </div>
 
-                            <div class="rounded-full px-9 py-3 bg-white">
-                                <p class="font-bold text-sm text-center text-pink-500">
-                                    推定廃棄削減量
-                                </p>
-                                <p class="text-3xl font-semibold text-center text-pink-500">
-                                    {statistics.waste_items_amount}
-																		<span className=' text-sm ml-2'>kg</span>
-                                </p>
-                            </div>
-														
+                        <div class="rounded-full px-9 py-3 bg-white">
+                            <p class="font-bold text-sm text-center text-pink-500">
+                                推定廃棄削減量
+                            </p>
+                            <p class="text-3xl font-semibold text-center text-pink-500">
+                                {statistics.waste_items_amount}
+                                <span className=" text-sm ml-2">kg</span>
+                            </p>
                         </div>
                     </div>
+                </div>
                 <div class="container max-w-7xl mx-auto bg-white rounded-lg p-8">
                     <h2 class="mb-8 text-2xl font-bold text-center text-gray-700">
                         服の大量廃棄問題
@@ -73,7 +72,7 @@ export default function statistic() {
                     <div class="flex flex-wrap -mx-8">
                         <div class="w-full lg:w-1/2 px-8">
                             <div class="mb-12 lg:mb-0 pb-12 lg:pb-0 border-b lg:border-b-0">
-                                <div className='flex justify-center items-center'>
+                                <div className="flex justify-center items-center">
                                     <img
                                         src="/problem.svg"
                                         width="auto"
@@ -105,7 +104,8 @@ export default function statistic() {
                                             ファストファッションの流行
                                         </h3>
                                         <p class="text-gray-500 dark:text-gray-300 leading-loose">
-                                            衣服のプチプラブームにより、安くておしゃれな服が短いサイクルで販売ファストファッションブランドが流行しています。
+                                            服のプチプラブームにより、安くておしゃれな服を
+                                            短いサイクルで販売するファストファッションが流行しています。
                                         </p>
                                     </div>
                                 </li>

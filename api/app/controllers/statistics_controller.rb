@@ -7,6 +7,7 @@ class StatisticsController < ApplicationController
 
 		# アイテム購入率
 		purchased_item_per = purchased_items_count/selling_items_count.to_f * 100
+		purchased_item_per = purchased_item_per.round(2)
 
 		# 1着あたりの平均重量(kg)
 		avarage_item_kg = 0.5
