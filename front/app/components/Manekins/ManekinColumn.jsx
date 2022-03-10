@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function ManekinColumn(props) {
     return (
-        <div>
+        <div className='mb-6'>
             <div className="rounded-2xl bg-white w-64 m-auto p-2">
                 <Link href="/manekin/[id]" as={`/manekin/${props.manekin.id}`}>
                     <a>
@@ -23,9 +23,9 @@ export default function ManekinColumn(props) {
                     <a>
                         <div className="flex-row gap-2 flex p-1 hover:opacity-75">
                             <div className="flex-shrink-0 ">
-                                {props.manekin.user.image ? (
+                                {props.manekin.user.avatar.url ? (
                                     <img
-                                        src={props.manekin.user.image.url}
+                                        src={props.manekin.user.avatar.url}
                                         alt="avatar_image"
                                         className="mx-auto object-cover rounded-full h-9 w-9  hover:opacity-75"
                                     />
