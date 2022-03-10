@@ -28,7 +28,6 @@ export default function ManekinDetail() {
                 setManekinImage(response.data.manekin.image);
                 setUser(response.data.user);
                 setItems(response.data.items);
-                // setItemsImage(response.data.items.image);
             });
         }
     }, [id]);
@@ -68,11 +67,20 @@ export default function ManekinDetail() {
                         <h2 className="font-semibold">出品者</h2>
                         <div className="flex my-3">
                             <Link href="/user/[id]" as={`/user/${user.id}`}>
-                                <a>
-                                    <img
-                                        src="/sample.png"
-                                        className="rounded-full w-12 h-12 flex-none ml-2"
-                                    />
+                                <a className="flex">
+                                    {user.avatar ? (
+                                        <img
+                                            src={user.avatar.url}
+                                            alt="avatar_image"
+                                            className="mx-auto object-cover rounded-full w-12 h-12 hover:opacity-75"
+                                        />
+                                    ) : (
+                                        <img
+                                            src="/sample.png"
+                                            alt="avatar_image"
+                                            className="mx-auto object-cover rounded-full w-12 h-12 hover:opacity-75"
+                                        />
+                                    )}
                                     <div className="flex-auto ml-3">
                                         <p>{user.name}</p>
                                         <p>{user.height}cm</p>
