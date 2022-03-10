@@ -2,7 +2,7 @@ class ManekinsController < ApplicationController
 	before_action :set_manekin, only: [:show, :update, :destroy]
 
   def index
-    manekins = Manekin.all.order(:id).includes(:user)
+    manekins = Manekin.all.order("created_at DESC").includes(:user)
     render json: manekins.as_json(include: :user)
   end
 
