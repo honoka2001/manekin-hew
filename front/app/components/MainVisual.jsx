@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 export default function MainVisual() {
     return (
-        <div className='bg-white pb-6 border-b'>
-            <div class="pt-20 flex justify-center items-center mx-20 space-x-4 ">
+        <div className="bg-white pb-6 border-b">
+            <div className="pt-20 flex justify-center items-center mx-20 space-x-4 ">
                 <div>
                     <Link href="/">
                         <img src="/buy.svg" width="auto" height="auto" alt="buy" />
