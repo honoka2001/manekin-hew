@@ -24,7 +24,7 @@ export default function Header() {
             .catch((data) => {
                 console.log(data);
                 setUser({});
-                setAvatar();
+                setAvatar('/sample.png');
             });
     };
     return (
