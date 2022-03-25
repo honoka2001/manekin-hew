@@ -10,6 +10,7 @@ export default function ManekinDetail() {
     const router = useRouter();
     const [manekin, setManekin] = useState([]);
     const [user, setUser] = useState([]);
+    const [avatar, setAvatar] = useState('');
     const [items, setItems] = useState([]);
     const [manekinImage, setManekinImage] = useState([]);
     const [id, setId] = useState();
@@ -27,6 +28,7 @@ export default function ManekinDetail() {
                 setManekin(response.data.manekin);
                 setManekinImage(response.data.manekin.image);
                 setUser(response.data.user);
+                setAvatar(response.data.user.avatar);
                 setItems(response.data.items);
             });
         }
@@ -68,9 +70,9 @@ export default function ManekinDetail() {
                         <div className="flex my-3">
                             <Link href="/user/[id]" as={`/user/${user.id}`}>
                                 <a className="flex">
-                                    {user.avatar ? (
+                                    {avatar.url ? (
                                         <img
-                                            src={user.avatar.url}
+                                            src={avatar.url}
                                             alt="avatar_image"
                                             className="mx-auto object-cover rounded-full w-12 h-12 hover:opacity-75"
                                         />
