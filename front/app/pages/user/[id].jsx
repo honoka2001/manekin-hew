@@ -71,7 +71,7 @@ export default function ManekinDetail() {
                 </div>
             </div>
             <div className=" px-48">
-                <h2 class="mt-10 text-xl font-semibold text-gray-700">出品マネキン</h2>
+                <h2 className="mt-10 text-xl font-semibold text-gray-700">出品マネキン</h2>
 
                 <div className="grid grid-cols-4 gap-2">
                     {manekins?.map((manekin) => {

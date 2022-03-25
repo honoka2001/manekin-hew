@@ -33,47 +33,49 @@ export default function sidebar() {
             .catch((error) => console.log('ログアウトエラー', error));
     };
     return (
-        <div class="w-60 bg-white px-1 pt-5">
+        <div className="w-60 bg-white px-1 pt-5">
             <ul className="flex flex-col justify-center ml-8">
                 <li>
                     <Link href="/user/[id]" as={`/user/${user.id}`}>
-                        <a class="flex space-x-2 mt-8 hover:text-gray-600">
+                        <a className="flex space-x-2 mt-8 hover:text-gray-600">
                             <img src="/mypage_icon.svg" width="auto" height="auto" alt="mypage" />
-                            <span class="font-semibold text-sm text-gray-700">マイページ</span>
+                            <span className="font-semibold text-sm text-gray-700">マイページ</span>
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/manekin/createForm">
-                        <a class="flex space-x-2 mt-8 hover:text-gray-600">
+                        <a className="flex space-x-2 mt-8 hover:text-gray-600">
                             <img src="/buy_icon.svg" width="auto" height="auto" alt="buy" />
-                            <span class="font-semibold text-sm text-gray-700">出品</span>
+                            <span className="font-semibold text-sm text-gray-700">出品</span>
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/statistic">
-                        <a class="flex space-x-2 mt-8 hover:text-gray-600">
+                        <a className="flex space-x-2 mt-8 hover:text-gray-600">
                             <img src="/know_icon.svg" width="auto" height="auto" alt="know" />
-                            <span class="font-semibold text-sm text-gray-700">MANEKIN利用分析</span>
+                            <span className="font-semibold text-sm text-gray-700">
+                                MANEKIN利用分析
+                            </span>
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/purchaseHistory">
-                        <a class="flex space-x-2 mt-8 hover:text-gray-600">
+                        <a className="flex space-x-2 mt-8 hover:text-gray-600">
                             <img src="/cart_icon.svg" width="auto" height="auto" alt="cart" />
-                            <span class="font-semibold text-sm text-gray-700">購入履歴</span>
+                            <span className="font-semibold text-sm text-gray-700">購入履歴</span>
                         </a>
                     </Link>
                 </li>
                 <li>
                     <button
-                        class="flex space-x-2 mt-8 hover:text-gray-600"
+                        className="flex space-x-2 mt-8 hover:text-gray-600"
                         onClick={handleLogoutClick}
                     >
                         <img src="/logout_icon.svg" width="auto" height="auto" alt="logout" />
-                        <span class="font-semibold text-sm text-gray-700">ログアウト</span>
+                        <span className="font-semibold text-sm text-gray-700">ログアウト</span>
                     </button>
                 </li>
             </ul>

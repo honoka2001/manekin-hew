@@ -13,8 +13,8 @@ export default function Home() {
             <Header />
             <MainVisual />
             <div className="flex">
-                    <Sidebar />
-                    <ManekinList />
+                <Sidebar />
+                <ManekinList />
             </div>
             <Footer />
             <Link href="/manekin/createForm">

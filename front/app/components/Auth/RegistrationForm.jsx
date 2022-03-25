@@ -31,7 +31,7 @@ export default function RegistrationForm() {
             })
             .catch((error) => {
                 console.log('registration error', error.response);
-                serErrorMessage(error.response.data.errors);
+                serErrorMessage(error.response.data.message);
             });
     };
 

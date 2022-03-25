@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import DeleteButton from '../Items/DeleteButton'
 
 export default function ManekinForm() {
     const [items, setItems] = useState([]);
@@ -89,6 +90,7 @@ export default function ManekinForm() {
                                 />
                                 <img src={item.image.url} className="object-cover h-28 w-28 mx-4" />
                                 <p>{item.name}</p>
+                                <DeleteButton item={item} />
                             </label>
                         );
                     })}
