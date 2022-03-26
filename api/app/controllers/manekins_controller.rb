@@ -15,14 +15,15 @@ class ManekinsController < ApplicationController
   def create
     manekin = Manekin.new(title: manekin_params[:title], content: manekin_params[:content], price: manekin_params[:price], image: manekin_params[:image], user_id: manekin_params[:user_id])
 
-    if manekin.save
+    ActiveRecord::Base.transaction do
+      manekin.save!
       manekin_params[:item_ids].split(',').each{|item_id|
-        Item.find(item_id).update(manekin_id: manekin.id)
+        Item.find(item_id).update!(manekin_id: manekin.id)
       }
-      render json: { manekin: manekin }, status: :created
-    else
-      render json: { message: '出品に失敗しました' }, status: :bad_request
     end
+      render json: { manekin: manekin }, status: :created
+    rescue => e
+      render json: { message: '出品に失敗しました' }, status: :bad_request
   end
 
   def destroy
