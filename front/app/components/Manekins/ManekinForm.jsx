@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import DeleteButton from '../Items/DeleteButton'
 
 export default function ManekinForm() {
     const [items, setItems] = useState([]);
@@ -64,7 +63,7 @@ export default function ManekinForm() {
             {/* アイテム選択ステップ */}
             <div className="mr-20 py-10 px-12 bg-white rounded-2xl shadow-xl z-20 flex-none max-h-screen">
                 <div>
-                <h2 className="text-3xl font-bold text-gray-700 mb-4 flex justify-center">
+                    <h2 className="text-3xl font-bold text-gray-700 mb-4 flex justify-center">
                         <span className="px-4 py-2 rounded-full text-white bg-yellow-400 text-sm flex justify-center mr-2">
                             Step2
                         </span>
@@ -90,7 +89,6 @@ export default function ManekinForm() {
                                 />
                                 <img src={item.image.url} className="object-cover h-28 w-28 mx-4" />
                                 <p>{item.name}</p>
-                                <DeleteButton item={item} />
                             </label>
                         );
                     })}
@@ -111,7 +109,7 @@ export default function ManekinForm() {
                     </p>
                 </div>
                 <div>
-                    <form onSubmit={handleSubmit} className="flex justify-center items-center">
+                    <div onClick={handleSubmit} className="flex justify-center items-center">
                         <div className="">
                             <p className="text-sm font-semibold text-gray-700">マネキンの写真</p>
                             <div className="border-dashed border-2 border-gray-400 flex flex-col justify-center items-center mb-3">
@@ -162,13 +160,13 @@ export default function ManekinForm() {
                                 className="block text-sm mb-3 py-3 px-4 rounded-lg w-full border outline-none border-gray-400 "
                             />
                             <button
-                                type="submit"
+                                onClick={handleSubmit}
                                 className="py-2 px-4 w-full text-white bg-red-500 rounded-xl hover:opacity-75"
                             >
                                 マネキンの出品
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
