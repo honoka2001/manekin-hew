@@ -33,11 +33,19 @@
 ![](https://i.imgur.com/AFzGafm.png)
 
 ## 実行手順
+
 `docker-compose build`
+
 `docker-compose run front npm install`
+
 `docker-compose up -d`
+
 `docker-compose run api rails db:create`
+
 `docker-compose run api rails db:migrate`
+
+http://localhost:8000/
+
 ### サーバの停止
 `docker-compose down`
 
