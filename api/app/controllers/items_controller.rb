@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-	before_action :set_item, only: [:destroy]
+  before_action :set_item, only: [:destroy]
 
   def index
     items = current_user.items.order("created_at DESC")
