@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update!(update_user_params)
+    if @user.update(update_user_params)
       render json: { user: @user }, status: :created
     else
       render json: { message: '更新に失敗しました' }, status: :bad_request
