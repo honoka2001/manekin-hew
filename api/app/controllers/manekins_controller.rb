@@ -17,9 +17,7 @@ class ManekinsController < ApplicationController
 
     ActiveRecord::Base.transaction do
       manekin.save!
-      manekin_params[:item_ids].split(',').each{|item_id|
-        Item.find(item_id).update!(manekin_id: manekin.id)
-      }
+      Item.item_ids_update(manekin_params[:item_ids], manekin.id)
     end
       render json: { manekin: manekin }, status: :created
     rescue => e
