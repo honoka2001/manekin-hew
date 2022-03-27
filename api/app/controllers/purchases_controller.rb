@@ -5,6 +5,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
+    is_purchased? and return
     purchase = Purchase.new(purchase_params)
     if purchase.save
       render status: :created
@@ -15,7 +16,14 @@ class PurchasesController < ApplicationController
 
   private
 
+    def is_purchased?
+      if Purchase.exists?(manekin_id: purchase_params[:manekin_id])
+        render json: { message: '購入済みです' }, status: :bad_request
+      end
+    end
+
     def purchase_params
       params.require(:purchase).permit(:manekin_id).merge(user_id: current_user.id)
     end
+
 end
