@@ -14,8 +14,8 @@ export default function ItemForm() {
 
     const handleSubmit = () => {
         const file = new FormData();
-        file.append('name', name);
-        file.append('image', image[0]);
+        file.append('item[name]', name);
+        file.append('item[image]', image[0]);
 
         axios
             .post(

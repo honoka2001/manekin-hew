@@ -27,11 +27,11 @@ export default function ManekinForm() {
 
     const handleSubmit = () => {
         const file = new FormData();
-        file.append('title', title);
-        file.append('content', content);
-        file.append('price', price);
-        file.append('item_ids', item_ids);
-        file.append('image', image[0]);
+        file.append('manekin[title]', title);
+        file.append('manekin[content]', content);
+        file.append('manekin[price]', price);
+        file.append('manekin[image]', image[0]);
+        file.append('item[ids]', item_ids);
 
         axios
             .post(
@@ -109,7 +109,7 @@ export default function ManekinForm() {
                     </p>
                 </div>
                 <div>
-                    <div onClick={handleSubmit} className="flex justify-center items-center">
+                    <div className="flex justify-center items-center">
                         <div className="">
                             <p className="text-sm font-semibold text-gray-700">マネキンの写真</p>
                             <div className="border-dashed border-2 border-gray-400 flex flex-col justify-center items-center mb-3">
