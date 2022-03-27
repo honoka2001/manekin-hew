@@ -9,7 +9,8 @@ class ManekinsController < ApplicationController
   def show
     user = @manekin.user
     items = @manekin.items
-    render json: { manekin: @manekin, items: items, user: user }, status: :ok
+    is_sold = @manekin.is_sold?
+    render json: { manekin: @manekin, items: items, user: user, is_sold: is_sold }, status: :ok
   end
 
   def create

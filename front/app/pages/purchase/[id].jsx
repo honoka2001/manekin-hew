@@ -21,6 +21,7 @@ export default function purchase() {
     useEffect(() => {
         if (id) {
             axios.get(`http://localhost:3000/manekins/${id}`).then((response) => {
+                response.data.is_sold && router.push('/');
                 console.log(response.data);
                 setManekin(response.data.manekin);
                 setManekinImage(response.data.manekin.image);
@@ -64,7 +65,9 @@ export default function purchase() {
                                         className="rounded-lg w-20 h-20 object-cover"
                                     />
                                     <div className="flex-grow pl-3">
-                                        <h6 className="font-semibold text-gray-600">{manekin.title}</h6>
+                                        <h6 className="font-semibold text-gray-600">
+                                            {manekin.title}
+                                        </h6>
                                     </div>
                                     <div>
                                         <span className="font-semibold text-gray-600 text-xl">
@@ -110,13 +113,16 @@ export default function purchase() {
                                         支払い方法
                                     </h2>
                                     <div className="mb-5">
-                                        <label for="type1" className="flex items-center cursor-pointer">
+                                        <label
+                                            htmlFor="type1"
+                                            className="flex items-center cursor-pointer"
+                                        >
                                             <input
                                                 type="radio"
                                                 className="form-radio h-5 w-5 text-indigo-500"
                                                 name="type"
                                                 id="type1"
-                                                checked
+                                                defaultChecked
                                             />
                                             <img src="" alt="" />
                                             クレジットカード
@@ -162,7 +168,7 @@ export default function purchase() {
                                     </div>
                                 </div>
                                 <div className="w-full p-3">
-                                    <label for="type2" className="flex items-center cursor-pointer">
+                                    <label htmlFor="type2" className="flex items-center cursor-pointer">
                                         <input
                                             type="radio"
                                             className="form-radio h-5 w-5 text-indigo-500"
