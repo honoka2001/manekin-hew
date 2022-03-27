@@ -7,9 +7,9 @@ export default function purchaseHistory() {
     const [manekins, setManekins] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/purchases',{ withCredentials: true }).then((response) => {
+        axios.get('http://localhost:3000/purchases', { withCredentials: true }).then((response) => {
             console.log(response);
-            setManekins(response.data);
+            setManekins(response.data.manekins);
         });
     }, []);
 
@@ -21,7 +21,10 @@ export default function purchaseHistory() {
 
                     {manekins.map((manekin) => {
                         return (
-                            <div className="w-full mx-auto text-gray-800 font-light mb-6 border-b border-gray-200 pb-6">
+                            <div
+                                key={manekin.id}
+                                className="w-full mx-auto text-gray-800 font-light mb-6 border-b border-gray-200 pb-6"
+                            >
                                 <div className="w-full flex items-center">
                                     <img
                                         src={manekin.image.url}

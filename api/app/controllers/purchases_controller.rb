@@ -1,9 +1,7 @@
 class PurchasesController < ApplicationController
   def index
-    user_id = current_user.id
-    purchased_manekin_ids = Purchase.where(user_id: user_id).order("created_at DESC").pluck(:manekin_id)
-    manekins = Manekin.find(purchased_manekin_ids)
-    render json: manekins, status: :ok
+    manekins = current_user.purchase_manekins.order("created_at DESC")
+    render json: { manekins: manekins }, status: :ok
   end
 
   def create
