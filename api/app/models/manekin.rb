@@ -6,4 +6,8 @@ class Manekin < ApplicationRecord
 
   has_one :purchase
   has_one :buyer, through: :purchase
+
+  def is_sold?
+    Purchase.exists?(manekin_id: self.id)
+  end
 end
