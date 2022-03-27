@@ -13,11 +13,11 @@ class ManekinsController < ApplicationController
   end
 
   def create
-    manekin = Manekin.new(title: manekin_params[:title], content: manekin_params[:content], price: manekin_params[:price], image: manekin_params[:image], user_id: manekin_params[:user_id])
+    manekin = Manekin.new(manekin_params)
 
     ActiveRecord::Base.transaction do
       manekin.save!
-      Item.item_ids_update(manekin_params[:item_ids], manekin.id)
+      Item.item_ids_update(item_params, manekin.id)
     end
       render json: { manekin: manekin }, status: :created
     rescue => e
@@ -36,6 +36,9 @@ class ManekinsController < ApplicationController
     end
 
     def manekin_params
-      params.permit(:title, :content, :price, :image, :item_ids).merge(user_id: current_user.id)
+      params.require(:manekin).permit(:title, :content, :price, :image).merge(user_id: current_user.id)
+    end
+    def item_params
+      params.require(:item).permit(:ids)
     end
 end

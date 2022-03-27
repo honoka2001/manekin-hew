@@ -3,8 +3,8 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :manekin, optional: true
 
-  def self.item_ids_update(item_ids, manekin_id)
-    item_ids.split(',').each{|id|
+  def self.item_ids_update(item_params, manekin_id)
+    item_params[:ids].split(',').each{|id|
       item = self.find(id)
       item.update!(manekin_id: manekin_id)
     }
