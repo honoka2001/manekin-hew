@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
     has_many :items, dependent: :destroy
     has_many :manekins, dependent: :destroy
+    has_many :comments
 
     has_many :purchases
     has_many :purchase_manekins, through: :purchases, source: :manekin
