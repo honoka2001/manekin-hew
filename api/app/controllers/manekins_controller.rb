@@ -10,7 +10,8 @@ class ManekinsController < ApplicationController
     user = @manekin.user
     items = @manekin.items
     is_sold = @manekin.is_sold?
-    render json: { manekin: @manekin, items: items, user: user, is_sold: is_sold }, status: :ok
+    comments = @manekin.comments.includes(:user)
+    render json: { manekin: @manekin, items: items, user: user, is_sold: is_sold, comments: comments.as_json(include: :user) }, status: :ok
   end
 
   def create
@@ -39,6 +40,7 @@ class ManekinsController < ApplicationController
     def manekin_params
       params.require(:manekin).permit(:title, :content, :price, :image).merge(user_id: current_user.id)
     end
+    
     def item_params
       params.require(:item).permit(:ids)
     end

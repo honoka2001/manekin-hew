@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :items, only: %i[index create destroy]
 
-  resources :manekins
+  resources :manekins do
+    resources :comments, only: [:create]
+  end
+
   resources :purchases
   resources :statistics, only: %i[index]
 
