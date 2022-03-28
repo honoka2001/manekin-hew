@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_133015) do
+ActiveRecord::Schema.define(version: 2022_03_27_132000) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "destination_family_name"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 2022_02_21_133015) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "comment_content"
+    t.bigint "user_id", null: false
+    t.bigint "manekin_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manekin_id"], name: "index_comments_on_manekin_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -77,6 +87,8 @@ ActiveRecord::Schema.define(version: 2022_02_21_133015) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "comments", "manekins"
+  add_foreign_key "comments", "users"
   add_foreign_key "items", "manekins"
   add_foreign_key "items", "users"
   add_foreign_key "manekins", "users"

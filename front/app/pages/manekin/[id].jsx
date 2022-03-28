@@ -2,13 +2,15 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import ItemColumn from '../../components/Items/ItemColumn';
 import Link from 'next/link';
 import Header from '../../components/Header/Header';
+import CommentField from '../../components/Manekins/CommentField';
 
 export default function ManekinDetail() {
     const router = useRouter();
     const [manekin, setManekin] = useState([]);
+    const [comments, setComments] = useState([]);
+    const [commentContent, setCommentContent] = useState('');
     const [user, setUser] = useState([]);
     const [avatar, setAvatar] = useState('');
     const [items, setItems] = useState([]);
@@ -24,22 +26,46 @@ export default function ManekinDetail() {
 
     useEffect(() => {
         if (id) {
-            axios.get(`http://localhost:3000/manekins/${id}`).then((response) => {
-                console.log(response.data);
-                setManekin(response.data.manekin);
-                setManekinImage(response.data.manekin.image);
-                setUser(response.data.user);
-                setAvatar(response.data.user.avatar);
-                setItems(response.data.items);
-                setIsSold(response.data.is_sold);
-            });
+            getMankeins(id);
         }
     }, [id]);
 
+    const getMankeins = (id) => {
+        axios.get(`http://localhost:3000/manekins/${id}`).then((response) => {
+            console.log(response.data);
+            setManekin(response.data.manekin);
+            setComments(response.data.comments);
+            setManekinImage(response.data.manekin.image);
+            setUser(response.data.user);
+            setAvatar(response.data.user.avatar);
+            setItems(response.data.items);
+            setIsSold(response.data.is_sold);
+        });
+    };
+
+    const handleSubmit = (e) => {
+        axios
+            .post(
+                `http://localhost:3000/manekins/${manekin.id}/comments`,
+                {
+                    comment: {
+                        comment_content: commentContent,
+                        manekin_id: manekin.id,
+                    },
+                },
+                { withCredentials: true }
+            )
+            .then((res) => {
+                console.log(res);
+                getMankeins(id);
+                setCommentContent('');
+            });
+    };
+
     return (
-        <div className="bg-gray-100 h-screen">
+        <div className="bg-gray-100">
             <Header />
-            <div className=" bg-white flex justify-center w-3/5 container mx-auto h-screen pt-16">
+            <div className=" bg-white flex justify-center w-3/5 container mx-auto pt-16">
                 <div className="flex-auto container mt-4 ml-8">
                     <img
                         src={manekinImage.url}
@@ -110,21 +136,13 @@ export default function ManekinDetail() {
                             </a>
                         </Link>
                     )}
-
-                    <h2 className="font-semibold text-lg">コメント</h2>
-                    <p className="text-gray-600 mt-2 mb-4 ml-6">コメントはまだありません</p>
-                    <p className="font-semibold text-gray-600">商品へのコメント</p>
-                    <textarea
-                        name="comment"
-                        cols="100"
-                        rows="5"
-                        placeholder="コメントする"
-                        className="border border-gray-300 w-11/12 rounded-lg py-4 px-6"
-                    ></textarea>
-                    <br />
-                    <button className="bg-gray-600 font-bold text-white py-2 w-11/12 rounded my-2">
-                        コメントを送信
-                    </button>
+                    <CommentField
+                        manekin_id={manekin.id}
+                        comments={comments}
+                        commentContent={commentContent}
+                        setCommentContent={setCommentContent}
+                        handleSubmit={handleSubmit}
+                    />
                 </div>
             </div>
         </div>
