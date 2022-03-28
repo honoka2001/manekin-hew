@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:destroy]
 
   def index
-    items = current_user.items.order("created_at DESC")
+    items = current_user.items.where(manekin_id: nil).order("created_at DESC")
     render json: { items: items }, status: :ok
   end
 
